@@ -11,6 +11,9 @@ router.get("/:id", pizzaController.show)
 // DESTROY
 router.delete("/:id", pizzaController.destroy)
 
+// STORE
+router.post("/", pizzaController.store)
+
 
 export default router;
 

@@ -15,6 +15,18 @@ const show = (req, res) => {
 
 
 // STORE
+const store = (req, res) => {
+    const data = req.body;
+    const newId = pizzasData[pizzasData.length - 1].id + 1
+    const newPizza = {
+        id: newId,
+        name: data.name,
+        image: data.image,
+        ingredients: data.ingredients
+    }
+   pizzasData.push(newPizza)
+   res.json(newPizza) 
+}
 
 
 // UPDATE
@@ -32,4 +44,4 @@ const destroy = (req, res) => {
 }
 
 
-export default {index, show, destroy}
+export default {index, show, destroy, store}

@@ -30,6 +30,20 @@ const store = (req, res) => {
 
 
 // UPDATE
+const update = (req, res) => {
+    const data = req.body;
+    const id = parseInt(req.params.id);
+    const pizza = pizzasData.find((pizza) => pizza.id === id);
+    const updatedPizza = {
+        id: id,
+        name: data.name,
+        image: data.image,
+        ingredients: data.ingredients
+    }
+    pizzasData.splice(pizzasData.indexOf(pizza), 1 ,pizza)
+
+    res.json(updatedPizza)
+}
 
 
 // MODIFY
@@ -44,4 +58,4 @@ const destroy = (req, res) => {
 }
 
 
-export default {index, show, destroy, store}
+export default {index, show, destroy, store, update}

@@ -21,13 +21,6 @@ const show = (req, res) => {
   const id = parseInt(req.params.id);
   const pizza = pizzasData.find((pizza) => pizza.id === id);
 
-  if (!pizza) {
-    res.status(404);
-    res.json({
-      error: "Not found",
-      message: "Pizza non trovata",
-    });
-  }
   res.json(pizza);
 };
 
@@ -51,14 +44,6 @@ const update = (req, res) => {
   const id = parseInt(req.params.id);
   const pizza = pizzasData.find((pizza) => pizza.id === id);
 
-  if (!pizza) {
-    res.status(404);
-    res.json({
-      error: "Not found",
-      message: "Pizza non trovata",
-    });
-  }
-
   const updatedPizza = {
     id: id,
     name: data.name,
@@ -77,14 +62,6 @@ const destroy = (req, res) => {
   const id = parseInt(req.params.id);
   const pizza = pizzasData.find((pizza) => pizza.id === id);
 
-  if (!pizza) {
-    res.status(404);
-    res.json({
-      error: "Not found",
-      message: "Pizza non trovata",
-    });
-  }
-  
   pizzasData.splice(pizzasData.indexOf(pizza), 1);
   res.sendStatus(204);
 };
